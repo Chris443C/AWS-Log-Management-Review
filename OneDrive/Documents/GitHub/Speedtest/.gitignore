@@ -1,0 +1,206 @@
+# Speedtest Dashboard - Git Ignore File
+
+# Data files - speedtest results should not be committed
+results.csv
+*.csv
+data/
+logs/
+exports/
+
+# Configuration files with sensitive information
+config.ini
+config.json
+.env
+.env.local
+.env.production
+settings.json
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Log files
+*.log
+log/
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Cache directories
+cache/
+.cache/
+
+# Node.js dependencies (if using any build tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Python cache files (if using Python scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Web server files
+.htaccess
+.htpasswd
+
+# SSL certificates and keys
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+*.pfx
+
+# PHP specific (if using PHP for backend)
+vendor/
+composer.lock
+
+# Generated files
+*.min.js
+*.min.css
+build/
+dist/
+
+# Testing
+coverage/
+.nyc_output/
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+
+# Documentation build
+docs/_build/
+site/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Fonts
+*.eot
+*.otf
+*.ttf
+*.woff
+*.woff2
+
+# Media files (unless needed for the dashboard)
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.ico
+*.svg
+*.mp4
+*.webm
+*.ogg
+*.mp3
+*.wav
+*.flac
+*.aac
+
+# PDF exports (these can be regenerated)
+*.pdf
+
+# Exclude everything in exports directory but keep the directory
+exports/*
+!exports/.gitkeep
+
+# Exclude everything in logs directory but keep the directory  
+logs/*
+!logs/.gitkeep
+
+# Personal notes and TODO files
+TODO.md
+NOTES.md
+todo.txt
+notes.txt
+
+# Local configuration overrides
+local.conf
+local.json
+local.ini

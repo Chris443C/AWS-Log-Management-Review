@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="primary_light">#BBDEFB</color>
+    <color name="accent">#FF4081</color>
+    
+    <!-- Background Colors -->
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="white">#FFFFFF</color>
+    
+    <!-- Performance Colors -->
+    <color name="excellent">#4CAF50</color>  <!-- Green - Excellent performance -->
+    <color name="good">#8BC34A</color>       <!-- Light Green - Good performance -->
+    <color name="warning">#FF9800</color>    <!-- Orange - Warning performance -->
+    <color name="poor">#F44336</color>       <!-- Red - Poor performance -->
+    
+    <!-- Status Colors -->
+    <color name="success">#4CAF50</color>    <!-- Success/Connected -->
+    <color name="error">#F44336</color>      <!-- Error/Disconnected -->
+    <color name="info">#2196F3</color>       <!-- Info/Connecting -->
+</resources> 

@@ -1,0 +1,38 @@
+{
+  "name": "speedtest-monitor",
+  "version": "1.0.0",
+  "description": "Internet speed monitoring and reporting for Raspberry Pi",
+  "main": "export_chart_pdf.js",
+  "scripts": {
+    "start": "node export_chart_pdf.js",
+    "test": "echo \"No tests specified\" && exit 0",
+    "setup": "bash setup-pi.sh"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "puppeteer": "^19.11.1"
+  },
+  "optionalDependencies": {
+    "wkhtmltopdf": "^0.1.0"
+  },
+  "keywords": [
+    "speedtest",
+    "monitoring",
+    "raspberry-pi",
+    "pdf-export",
+    "web-dashboard"
+  ],
+  "author": "Speedtest Monitor",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/speedtest-monitor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/speedtest-monitor/issues"
+  },
+  "homepage": "https://github.com/yourusername/speedtest-monitor#readme"
+} 
