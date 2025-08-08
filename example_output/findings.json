@@ -1,0 +1,130 @@
+{
+  "cloudtrail": {
+    "enabled": false,
+    "multi_region": false,
+    "log_file_validation": false,
+    "s3_bucket": null,
+    "issues": [
+      {
+        "severity": "HIGH",
+        "description": "No CloudTrail trails found",
+        "pci_reference": "10.2.1-10.2.7",
+        "recommendation": "Enable CloudTrail for API activity logging"
+      }
+    ]
+  },
+  "s3_logging": {
+    "buckets_analyzed": 5,
+    "buckets_with_logging": 2,
+    "buckets_without_logging": [
+      "bucket1",
+      "bucket2",
+      "bucket3"
+    ],
+    "issues": [
+      {
+        "severity": "MEDIUM",
+        "description": "S3 bucket bucket1 does not have access logging enabled",
+        "pci_reference": "10.2.1",
+        "recommendation": "Enable access logging for bucket bucket1"
+      },
+      {
+        "severity": "MEDIUM",
+        "description": "S3 bucket bucket2 does not have access logging enabled",
+        "pci_reference": "10.2.1",
+        "recommendation": "Enable access logging for bucket bucket2"
+      },
+      {
+        "severity": "MEDIUM",
+        "description": "S3 bucket bucket3 does not have access logging enabled",
+        "pci_reference": "10.2.1",
+        "recommendation": "Enable access logging for bucket bucket3"
+      }
+    ]
+  },
+  "cloudwatch_logs": {
+    "log_groups": 8,
+    "log_groups_with_retention": 3,
+    "log_groups_without_retention": [
+      "/aws/lambda/app1",
+      "/aws/lambda/app2",
+      "/aws/rds/instance1",
+      "/aws/rds/instance2",
+      "/aws/ec2/security"
+    ],
+    "issues": [
+      {
+        "severity": "MEDIUM",
+        "description": "CloudWatch Log Group /aws/lambda/app1 has no retention policy",
+        "pci_reference": "10.5.1.2",
+        "recommendation": "Set retention policy for log group /aws/lambda/app1"
+      },
+      {
+        "severity": "MEDIUM",
+        "description": "CloudWatch Log Group /aws/lambda/app2 has no retention policy",
+        "pci_reference": "10.5.1.2",
+        "recommendation": "Set retention policy for log group /aws/lambda/app2"
+      },
+      {
+        "severity": "MEDIUM",
+        "description": "CloudWatch Log Group /aws/rds/instance1 has no retention policy",
+        "pci_reference": "10.5.1.2",
+        "recommendation": "Set retention policy for log group /aws/rds/instance1"
+      },
+      {
+        "severity": "MEDIUM",
+        "description": "CloudWatch Log Group /aws/rds/instance2 has no retention policy",
+        "pci_reference": "10.5.1.2",
+        "recommendation": "Set retention policy for log group /aws/rds/instance2"
+      },
+      {
+        "severity": "MEDIUM",
+        "description": "CloudWatch Log Group /aws/ec2/security has no retention policy",
+        "pci_reference": "10.5.1.2",
+        "recommendation": "Set retention policy for log group /aws/ec2/security"
+      }
+    ]
+  },
+  "rds_logging": {
+    "instances": 3,
+    "instances_with_logging": 1,
+    "instances_without_logging": [
+      "db-instance-1",
+      "db-instance-2"
+    ],
+    "issues": [
+      {
+        "severity": "MEDIUM",
+        "description": "RDS instance db-instance-1 does not have CloudWatch logging enabled",
+        "pci_reference": "10.2.1",
+        "recommendation": "Enable CloudWatch logging for RDS instance db-instance-1"
+      },
+      {
+        "severity": "MEDIUM",
+        "description": "RDS instance db-instance-2 does not have CloudWatch logging enabled",
+        "pci_reference": "10.2.1",
+        "recommendation": "Enable CloudWatch logging for RDS instance db-instance-2"
+      }
+    ]
+  },
+  "iam_logging": {
+    "credential_reports_enabled": false,
+    "access_analyzer_enabled": false,
+    "issues": [
+      {
+        "severity": "MEDIUM",
+        "description": "IAM credential reports not enabled",
+        "pci_reference": "10.2.1",
+        "recommendation": "Enable IAM credential reports for access monitoring"
+      },
+      {
+        "severity": "MEDIUM",
+        "description": "IAM Access Analyzer not enabled",
+        "pci_reference": "10.2.1",
+        "recommendation": "Enable IAM Access Analyzer for policy analysis"
+      }
+    ]
+  },
+  "timestamp": "2025-06-18T20:41:03.684249",
+  "total_issues": 12
+}

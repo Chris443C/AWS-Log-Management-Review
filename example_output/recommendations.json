@@ -1,0 +1,65 @@
+[
+  {
+    "priority": "HIGH",
+    "category": "CloudTrail",
+    "title": "Enable CloudTrail",
+    "description": "Enable CloudTrail for comprehensive API activity logging",
+    "pci_reference": "10.2.1-10.2.7",
+    "script": "setup_cloudtrail.sh",
+    "estimated_cost": "Low (CloudTrail is free for first 5GB/month)"
+  },
+  {
+    "priority": "MEDIUM",
+    "category": "S3",
+    "title": "Enable S3 Access Logging",
+    "description": "Enable access logging for 3 S3 buckets",
+    "pci_reference": "10.2.1",
+    "script": "setup_s3_logging.sh",
+    "estimated_cost": "Low (S3 access logs are inexpensive)"
+  },
+  {
+    "priority": "MEDIUM",
+    "category": "CloudWatch",
+    "title": "Set Log Retention Policies",
+    "description": "Set retention policies for 5 log groups",
+    "pci_reference": "10.5.1.2",
+    "script": "setup_cloudwatch_retention.sh",
+    "estimated_cost": "Low (reduces storage costs)"
+  },
+  {
+    "priority": "MEDIUM",
+    "category": "RDS",
+    "title": "Enable RDS CloudWatch Logging",
+    "description": "Enable CloudWatch logging for 2 RDS instances",
+    "pci_reference": "10.2.1",
+    "script": "setup_rds_logging.sh",
+    "estimated_cost": "Low"
+  },
+  {
+    "priority": "MEDIUM",
+    "category": "IAM",
+    "title": "Enable IAM Monitoring",
+    "description": "Configure IAM credential reports and access analyzer",
+    "pci_reference": "10.2.1",
+    "script": "setup_iam_monitoring.sh",
+    "estimated_cost": "Free"
+  },
+  {
+    "priority": "LOW",
+    "category": "Monitoring",
+    "title": "Set Up Monitoring Alerts",
+    "description": "Configure CloudWatch alarms for security events",
+    "pci_reference": "10.4.1",
+    "script": "setup_monitoring_alerts.sh",
+    "estimated_cost": "Low"
+  },
+  {
+    "priority": "LOW",
+    "category": "Cost",
+    "title": "Implement Cost Optimization",
+    "description": "Set up budgets and cost monitoring for log management",
+    "pci_reference": "N/A",
+    "script": "setup_cost_optimization.sh",
+    "estimated_cost": "Free"
+  }
+]

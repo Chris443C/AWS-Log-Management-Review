@@ -1,0 +1,165 @@
+findings:
+  cloudtrail:
+    enabled: false
+    issues:
+    - description: No CloudTrail trails found
+      pci_reference: 10.2.1-10.2.7
+      recommendation: Enable CloudTrail for API activity logging
+      severity: HIGH
+    log_file_validation: false
+    multi_region: false
+    s3_bucket: null
+  cloudwatch_logs:
+    issues:
+    - description: CloudWatch Log Group /aws/lambda/app1 has no retention policy
+      pci_reference: 10.5.1.2
+      recommendation: Set retention policy for log group /aws/lambda/app1
+      severity: MEDIUM
+    - description: CloudWatch Log Group /aws/lambda/app2 has no retention policy
+      pci_reference: 10.5.1.2
+      recommendation: Set retention policy for log group /aws/lambda/app2
+      severity: MEDIUM
+    - description: CloudWatch Log Group /aws/rds/instance1 has no retention policy
+      pci_reference: 10.5.1.2
+      recommendation: Set retention policy for log group /aws/rds/instance1
+      severity: MEDIUM
+    - description: CloudWatch Log Group /aws/rds/instance2 has no retention policy
+      pci_reference: 10.5.1.2
+      recommendation: Set retention policy for log group /aws/rds/instance2
+      severity: MEDIUM
+    - description: CloudWatch Log Group /aws/ec2/security has no retention policy
+      pci_reference: 10.5.1.2
+      recommendation: Set retention policy for log group /aws/ec2/security
+      severity: MEDIUM
+    log_groups: 8
+    log_groups_with_retention: 3
+    log_groups_without_retention:
+    - /aws/lambda/app1
+    - /aws/lambda/app2
+    - /aws/rds/instance1
+    - /aws/rds/instance2
+    - /aws/ec2/security
+  iam_logging:
+    access_analyzer_enabled: false
+    credential_reports_enabled: false
+    issues:
+    - description: IAM credential reports not enabled
+      pci_reference: 10.2.1
+      recommendation: Enable IAM credential reports for access monitoring
+      severity: MEDIUM
+    - description: IAM Access Analyzer not enabled
+      pci_reference: 10.2.1
+      recommendation: Enable IAM Access Analyzer for policy analysis
+      severity: MEDIUM
+  rds_logging:
+    instances: 3
+    instances_with_logging: 1
+    instances_without_logging:
+    - db-instance-1
+    - db-instance-2
+    issues:
+    - description: RDS instance db-instance-1 does not have CloudWatch logging enabled
+      pci_reference: 10.2.1
+      recommendation: Enable CloudWatch logging for RDS instance db-instance-1
+      severity: MEDIUM
+    - description: RDS instance db-instance-2 does not have CloudWatch logging enabled
+      pci_reference: 10.2.1
+      recommendation: Enable CloudWatch logging for RDS instance db-instance-2
+      severity: MEDIUM
+  s3_logging:
+    buckets_analyzed: 5
+    buckets_with_logging: 2
+    buckets_without_logging:
+    - bucket1
+    - bucket2
+    - bucket3
+    issues:
+    - description: S3 bucket bucket1 does not have access logging enabled
+      pci_reference: 10.2.1
+      recommendation: Enable access logging for bucket bucket1
+      severity: MEDIUM
+    - description: S3 bucket bucket2 does not have access logging enabled
+      pci_reference: 10.2.1
+      recommendation: Enable access logging for bucket bucket2
+      severity: MEDIUM
+    - description: S3 bucket bucket3 does not have access logging enabled
+      pci_reference: 10.2.1
+      recommendation: Enable access logging for bucket bucket3
+      severity: MEDIUM
+  timestamp: '2025-06-18T20:41:03.684249'
+  total_issues: 12
+metadata:
+  generated_at: '2025-06-18T20:41:04.137249'
+  pci_dss_version: v4.0.1
+  tool_version: 1.0.0
+pci_compliance:
+  non_compliant_requirements:
+  - 10.2.1-10.2.7
+  - 10.2.1
+  - 10.5.1.2
+  requirements:
+    10.2.1: All individual access to cardholder data
+    10.2.2: All actions taken by any individual with root or administrative privileges
+    10.2.3: Access to all audit trails
+    10.2.4: Invalid logical access attempts
+    10.2.5: Use of identification and authentication mechanisms
+    10.2.6: Initialization of the audit logs
+    10.2.7: Creation and deletion of system-level objects
+    10.5.1.2: Retain audit trail history for at least one year
+    10.5.2: Protect audit trail files from unauthorized modifications
+    10.5.3: Promptly back up audit trail files to a centralized log server
+recommendations:
+- category: CloudTrail
+  description: Enable CloudTrail for comprehensive API activity logging
+  estimated_cost: Low (CloudTrail is free for first 5GB/month)
+  pci_reference: 10.2.1-10.2.7
+  priority: HIGH
+  script: setup_cloudtrail.sh
+  title: Enable CloudTrail
+- category: S3
+  description: Enable access logging for 3 S3 buckets
+  estimated_cost: Low (S3 access logs are inexpensive)
+  pci_reference: 10.2.1
+  priority: MEDIUM
+  script: setup_s3_logging.sh
+  title: Enable S3 Access Logging
+- category: CloudWatch
+  description: Set retention policies for 5 log groups
+  estimated_cost: Low (reduces storage costs)
+  pci_reference: 10.5.1.2
+  priority: MEDIUM
+  script: setup_cloudwatch_retention.sh
+  title: Set Log Retention Policies
+- category: RDS
+  description: Enable CloudWatch logging for 2 RDS instances
+  estimated_cost: Low
+  pci_reference: 10.2.1
+  priority: MEDIUM
+  script: setup_rds_logging.sh
+  title: Enable RDS CloudWatch Logging
+- category: IAM
+  description: Configure IAM credential reports and access analyzer
+  estimated_cost: Free
+  pci_reference: 10.2.1
+  priority: MEDIUM
+  script: setup_iam_monitoring.sh
+  title: Enable IAM Monitoring
+- category: Monitoring
+  description: Configure CloudWatch alarms for security events
+  estimated_cost: Low
+  pci_reference: 10.4.1
+  priority: LOW
+  script: setup_monitoring_alerts.sh
+  title: Set Up Monitoring Alerts
+- category: Cost
+  description: Set up budgets and cost monitoring for log management
+  estimated_cost: Free
+  pci_reference: N/A
+  priority: LOW
+  script: setup_cost_optimization.sh
+  title: Implement Cost Optimization
+summary:
+  compliance_score: 46
+  estimated_monthly_cost: $82
+  total_issues: 12
+  total_recommendations: 7

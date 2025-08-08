@@ -1,0 +1,102 @@
+To review and manage logs stored in S3 buckets in alignment with PCI DSS—while minimizing costs—follow these instructions structured around PCI DSS v4.0.1 requirements, particularly Requirement 10:
+
+Objective
+Ensure log collection and retention practices in Amazon S3 align with PCI DSS while minimizing storage and processing costs.
+
+1. Identify and Prioritize Log Sources
+Focus logging on systems within or connected to the Cardholder Data Environment (CDE), and systems critical to security:
+
+Firewalls
+
+Routers and switches
+
+Authentication servers
+
+Payment applications
+
+Database servers storing CHD
+
+Critical cloud infrastructure components (e.g., IAM, S3 access logs)
+
+PCI Reference: Requirement 10.2.1 - 10.2.7 define specific events that must be logged.
+
+2. Define Logging Policies (What to Log)
+Capture logs that include at minimum:
+
+User identification
+
+Type of event
+
+Date and time
+
+Success/failure of the event
+
+Origination of the event
+
+Identity or name of affected data/system/resource
+
+PCI Reference: Requirement 10.2.6 & 10.3.
+
+3. Implement Logging Agents or AWS Services
+Use efficient, native AWS options:
+
+Enable CloudTrail for API activity tracking.
+
+Enable S3 Access Logging for tracking requests to buckets.
+
+Use CloudWatch Logs Agent or AWS Lambda to process logs selectively.
+
+4. Filter Logs to Reduce Storage
+Use rules to only store logs relevant to PCI DSS (e.g., exclude verbose system logs not related to CHD access).
+
+Examples:
+
+Exclude debug-level logs unless required.
+
+Discard logs from ephemeral/test systems not in PCI scope.
+
+5. Use Lifecycle Policies for S3 Storage Management
+Configure S3 Lifecycle Rules to:
+
+Transition older logs to infrequent access or Glacier.
+
+Delete logs after the required retention period.
+
+PCI Reference: Requirement 10.5.1.2 mandates a minimum one-year retention, with the first 3 months "immediately available".
+
+6. Secure Log Files
+Ensure logs stored in S3 are:
+
+Encrypted at rest using AWS KMS.
+
+Access-controlled via bucket policies and IAM roles.
+
+Monitored for unauthorized access via CloudTrail alerts.
+
+PCI Reference: Requirement 10.5.2 and 10.5.3 mandate protection from unauthorized access and changes.
+
+7. Regularly Review and Validate Logs
+Establish a monthly review of:
+
+Logging configuration changes
+
+Access controls
+
+Anomalies in access or volume
+
+PCI Reference: Requirement 10.4.1 mandates review of logs at least daily for critical systems.
+
+8. Document Everything
+Maintain documentation for:
+
+Log sources
+
+Retention policies
+
+Filtering rules
+
+Review processes
+
+This is essential for passing a QSA review.
+
+Would you like a policy template for this or help configuring specific AWS tools like CloudTrail or S3 Lifecycle?
